@@ -1,0 +1,11 @@
+p {
+  font-family: Lato;
+}
+
+.main-form {
+  padding: 2%;
+}
+.frame{
+  padding-top: 1%;
+  border: 1px solid #ddd;
+}

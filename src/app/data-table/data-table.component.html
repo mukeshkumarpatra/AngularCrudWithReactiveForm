@@ -1,0 +1,58 @@
+<div class="mat-elevation-z8">
+    <mat-table [dataSource]="user"  matSort>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Full Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="age">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Age</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.age}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="location">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Location</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.location}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="gender">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Gender Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.gender}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="aadhar">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Aadhar Number</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.aadhar}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="pan">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>PAN Number</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.pan}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="qualification">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Qualification</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.qualification}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="university">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>University</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.university}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="about">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>About</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.about}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="expertise">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Expertise</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.expertise}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+        <button mat-icon-button ><mat-icon>launch</mat-icon></button>
+        <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5,10,25,50,100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+    </div>

@@ -1,0 +1,83 @@
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+            <mat-toolbar color="primary"><span>Personal Details</span></mat-toolbar>
+            <div class="col">
+                <div class="form-group">
+                    <label for="uname">Name</label>
+                    <input formControlName="name" id="uname" name="name" type="text" class="form-control">
+                    <div *ngIf="form.controls.name.touched && form.controls.name.invalid" class="alert alert-danger">
+                        <div *ngIf="form.controls.name.errors.required">name required.</div>
+                        <div *ngIf="form.controls.name.errors.minlength">name required min
+                            {{form.controls.name.errors.minlength.requiredLength}} characters.</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input formControlName="email" id="email" name="email" type="email" class="form-control">
+                    <div *ngIf="form.controls.email.touched && form.controls.email.invalid" class="alert alert-danger">
+                        <div *ngIf="form.controls.email.errors.required"> Email is required</div>
+                        <div *ngIf="form.controls.email.errors.pattern"> Email pattern invalid.</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input formControlName="age" name="age" id="age" type="number" class="form-control">
+                    <div *ngIf="form.controls.age.touched && form.controls.age.invalid" class="alert alert-danger">
+                        <div *ngIf="form.controls.age.errors.required">Age required.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input formControlName="location" name="location" id="location" type="text" class="form-control">
+                    <div *ngIf="location.touched && location.invalid" class="alert alert-danger">
+                        <div *ngIf="location.errors.required">location required.</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="gender">Gender : </label>
+                    <input type="radio" class="marginLeft10" name="gender" value='Male' formControlName="gender"> Male
+                    <input type="radio" name='gender' value='Female' formControlName="gender">Female
+                    <input type="radio" name="gender" value='Other' formControlName="gender"> Others
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="aadhar">Aadhar Number</label>
+                    <input formControlName="aadhar" name="aadhar" id="aadhar" type="number" class="form-control">
+                    <div *ngIf="form.controls.aadhar.touched && form.controls.aadhar.invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="form.controls.aadhar.errors.required">Aadhar Number required.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="pan">PAN Number</label>
+                    <input formControlName="pan" name="pan" id="pan" type="text" class="form-control">
+                    <div *ngIf="form.controls.pan.touched && form.controls.pan.invalid" class="alert alert-danger">
+                        <div *ngIf="form.controls.pan.errors.required">PAN Number required.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <label for="checkbox"></label>
+                <input type="checkbox" id="cb" class="checkbox" (change)="isFormValid($event)"> Form Validation.
+            </div>
+            <div class="col">
+                <button class="btn btn-primary" type="submit" [disabled]="form.invalid">submit</button>
+                <button class="btn" class="btn btn-danger" type="button" (click)="onClear()">Reset</button>
+            </div>
+        </form>

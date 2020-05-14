@@ -1,0 +1,9 @@
+
+    .center{
+        margin: 0 auto;
+        float: right;
+        /* value of your choice which suits your alignment */
+    }
+    .btn {
+        margin-left: 5px;
+        }

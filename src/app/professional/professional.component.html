@@ -1,0 +1,51 @@
+
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+            <mat-toolbar color="primary"><span>Professional Details</span></mat-toolbar>
+
+            <div class="col" *ngFor="let choice of checks">
+                <label for="qualification"></label>
+                <input formControlName="qualification" name="qualification" [value]="" type="checkbox"
+                    id="cb"> {{choice.description}}
+
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="university">University</label>
+                    <input formControlName="university" id="university" name="university" type="text"
+                        class="form-control">
+                    <div *ngIf="form.controls.university.touched && form.controls.university.invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="form.controls.university.errors.required"> University is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label for="about">About</label>
+                    <textarea formControlName="about" name="about" id="about" type="textarea"
+                        class="form-control"></textarea>
+                    <div *ngIf="form.controls.about.touched && form.controls.about.invalid" class="alert alert-danger">
+                        <div *ngIf="form.controls.about.errors.required">About required.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="expertise">Select a Expertise</label>
+                    <select class="form-control" name="expertise" id="expertise" formControlName="expertise">
+                        <option *ngFor="let userRole of expert" [value]="userRole.name">{{userRole.name}}</option>
+                    </select>
+                    <div *ngIf="form.controls.expertise.touched && form.controls.expertise.invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="form.controls.expertise.errors.required">expertise required.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+            <button class="btn btn-primary" type="submit" >submit</button>
+            <button class="btn" class="btn btn-danger" type="button" (click)="onClear()">Reset</button>
+            </div>
+
+        </form>
